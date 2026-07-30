@@ -19,9 +19,11 @@ if [ ! -f "$WEBVIEW2_INSTALLER" ]; then
 fi
 
 "$PROTON" run wineboot -u
-"$PROTON" run reg add "HKCU\\Software\\Wine\\Drivers" /v Audio /d pulse /f
-"$PROTON" run reg add HKCU\\Software\\Wine /v Version /d win11 /f
+"$PROTON" run reg add 'HKCU\Software\Wine\Drivers' /v Audio /d pulse /f
+"$PROTON" run reg add 'HKCU\Software\Wine' /v Version /d win11 /f
 
-"$PROTON" run "$WEBVIEW2_INSTALLER" /silent /install
+if [ ! "$(find "$DRIVE_C" -iname 'msedgewebview2.exe')" ]; then
+  "$PROTON" run "$WEBVIEW2_INSTALLER" /silent /install
+fi
 
-WINEDLLOVERRIDES="mscoree,mshtml,webview2=disabled" "$PROTON" run "$FUSION_INSTALLER"
+SKIP_PRECHECK=1 "$PROTON" run "$FUSION_INSTALLER"
