@@ -1,0 +1,57 @@
+app-id: com.autodesk.Fusion360
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: fusion_wrapper
+
+finish-args:
+  - --allow=multiarch
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --device=shm
+  - --share=ipc
+  - --share=network
+  - --filesystem=host
+  - --allow=devel
+
+add-extensions:
+  org.freedesktop.Platform.Compat.i386:
+    directory: lib/i386-linux-gnu
+    version: '25.08'
+    no-autodownload: false
+
+  com.valvesoftware.Steam.CompatibilityTool.Proton-GE:
+    directory: proton
+    version: stable
+    subdirectories: true
+    no-autodownload: false
+    autodelete: false
+
+modules:
+  - name: fusion-app
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/proton
+      - mkdir -p /app/lib/i386-linux-gnu
+      - install -Dm755 common.sh /app/bin/common.sh
+      - install -Dm755 fusion_wrapper.sh /app/bin/fusion_wrapper
+      - install -Dm755 fusion_setup.sh /app/bin/fusion_setup.sh
+      - install -Dm644 com.autodesk.Fusion360.desktop /app/share/applications/com.autodesk.Fusion360.desktop
+      - install -Dm644 com.autodesk.Fusion360.metainfo.xml /app/share/metainfo/com.autodesk.Fusion360.metainfo.xml
+      - install -Dm644 fusion360.svg /app/share/icons/hicolor/scalable/apps/com.autodesk.Fusion360.svg
+    
+    sources:
+      - type: file
+        path: common.sh
+      - type: file
+        path: fusion_wrapper.sh
+      - type: file
+        path: fusion_setup.sh
+      - type: file
+        path: com.autodesk.Fusion360.desktop
+      - type: file
+        path: com.autodesk.Fusion360.metainfo.xml
+      - type: file
+        path: fusion360.svg

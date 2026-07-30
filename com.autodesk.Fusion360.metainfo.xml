@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.autodesk.Fusion360</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <name>Autodesk Fusion</name>
+  <summary>Cloud-connected 3D CAD, CAM, CAE, and PCB software</summary>
+  <description>
+    <p>
+      Autodesk Fusion (formerly Fusion 360) is an integrated 3D CAD, CAM, CAE, and PCB design platform.
+      This Flatpak package runs Autodesk Fusion seamlessly on Linux using an optimized GE-Proton compatibility layer with Vulkan DXVK acceleration.
+    </p>
+    <p>
+      Features:
+    </p>
+    <ul>
+      <li>High-performance DirectX 11 translation via Vulkan DXVK</li>
+      <li>Host browser authentication support (adsk:// and adskidmgr:// handling)</li>
+      <li>Isolated Wine prefix management</li>
+      <li>Native setup progress tracking</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">com.autodesk.Fusion360.desktop</launchable>
+  <icon type="stock">com.autodesk.Fusion360</icon>
+  <categories>
+    <category>Graphics</category>
+    <category>3DGraphics</category>
+    <category>Engineering</category>
+    <category>Development</category>
+  </categories>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="1.0.0" date="2026-07-28">
+      <description>
+        <p>Initial standalone Flatpak package for Autodesk Fusion powered by GE-Proton 11.</p>
+      </description>
+    </release>
+  </releases>
+</component>

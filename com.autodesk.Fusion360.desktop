@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Autodesk Fusion
+GenericName=3D CAD/CAM Software
+Comment=Autodesk Fusion 3D CAD/CAM software powered by GE-Proton
+Exec=fusion_wrapper %u
+Icon=com.autodesk.Fusion360
+Terminal=false
+Type=Application
+Categories=Graphics;3DGraphics;Engineering;
+MimeType=x-scheme-handler/adsk;x-scheme-handler/adskidmgr;
+StartupWMClass=fusion360.exe
